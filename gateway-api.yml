@@ -1,20 +1,20 @@
-#spring:
-#  cloud:
-#    gateway:
-#      discovery:
-#        locator:
-#          enabled: true
-#          lower-case-service-id: true
-#      routes:
-#        - id: account-service
-#          uri: lb://account-api
-#          predicates:
-#            - Path=/account/**
-#          filters:
-#            - RewritePath=/account/(?<segment>.*), /$\{segment}
-#        - id: client-service
-#          uri: lb://client-api
-#          predicates:
-#            - Path=/client/**
-#          filters:
-#            - RewritePath=/client/(?<segment>.*), /$\{segment}
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      routes:
+        - id: account-service
+          uri: lb://account-api
+          predicates:
+            - Path=/account/**
+          filters:
+            - RewritePath=/account/(?<segment>.*), /$\{segment}
+        - id: client-service
+          uri: lb://client-api
+          predicates:
+            - Path=/client/**
+          filters:
+            - RewritePath=/client/(?<segment>.*), /$\{segment}
